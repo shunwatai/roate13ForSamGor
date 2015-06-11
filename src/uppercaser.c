@@ -24,11 +24,18 @@ int main() {
             break;
         }
 
-        // Is the character lower case?
+        // Is the character lower case (ascii 97-122)?
         if ((c >= 'a') && (c <= 'z')) {
-            // Yes, let's make it upper case
-            c -= 32;
+            // Yes, let's rotate it right 13
+            c = (c-97+13)%26+97;
         }
+
+        // Is the character upper case (ascii 65-90)?
+        if ((c >= 'A') && (c <= 'Z')) {
+            // Yes, let's rotate it right 13
+            c = (c-65+13)%26+65;
+        }
+
         // Print the character to stdout (default)
         printf("%c", c);
     } while (1);
